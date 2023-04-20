@@ -1,0 +1,40 @@
+****
+# Creating ENV
+python -m virtualenv my_env
+
+FOR PIPENV
+python -m pipenv install django
+
+python -m pipenv shell
+
+django-admin startproject storefront . (. is to store the main folder without createing new folder)
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+
+
+# changing the main folder name of the project
+- mv projectName newName
+****
+
+python -m django startproject mysite
+python manage.py shell
+python manage.py runserver
+
+# creating the database
+
+# Creating app 
+    python manage.py startapp app_name
+
+# Create urls.py 
+    create the new urls.py in newly created app_name
+# Write your first view
+# Create the path in new urls.py in apps 
+# add the url of the app in the main setting 
+
+
+
+TODO List:
+1. Templates
+2. Create adminuser
+3. Database / Models
+4. Display the data in the blog
+
