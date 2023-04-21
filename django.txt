@@ -34,7 +34,12 @@ python manage.py runserver
 
 TODO List:
 1. Templates
-2. Create adminuser
+    - register the app setting.py (main project folder) 
+    - create template folder for main body and nav.
+        - add the dir in the settings.py (main project folder) 
+    - create static folder. (img, js, css)
+        - add the dir for static folder in setting.py (main project folder) 
+2. Create admin user
 3. Database / Models
 4. Display the data in the blog
 
