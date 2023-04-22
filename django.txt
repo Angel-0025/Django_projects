@@ -40,6 +40,46 @@ TODO List:
     - create static folder. (img, js, css)
         - add the dir for static folder in setting.py (main project folder) 
 2. Create admin user
+    - python manage.py makemigrations
+    - python manage.py migrate
+        - migrate first if the project is new or not make the first migrations.
+    - python manage.py createsuperuser 
 3. Database / Models
+    - User/author
+        - create a model for user 
+        - class ClassName(models.Model)
+            - Contain username and email
+    
+    - Content / Post
+        - Create new model for posted blog
+            - Contains title, content, data_posted, and author (foreign_key)
+    ---------------------------------------------------
+    - Register the model in admin.py
+        - admin.site.register(Blog_User)
+        - admin.site.register(Post)
+
+   
 4. Display the data in the blog
+    - import the model to the view
+    - the imported model new to instantiate to get the all fields
+        - Post.objects.all() // To get the fields
+    - add the added model as dictionary in the render function
+        - render(request, url, model_dictionary)
+    - to display the data, us the for loop to display
+        - for loop_name in model_dictionary key
+            - for post in Post
+    - at last to display the data, use {{}} and put the loop_name next with '.' then the field name of the data need
+        - {{ post.title }} // it will display all the data that have in the field 'title'.
+
+5. Form
+    - Content Form
+        - Create
+        - Edit/Update
+        - Delete
+    - Blog user Form
+        - Create 
+        - Edit/Update
+        - Delete
+
+6. Simplify the list, create, delete, update by using the generic form imported
 
