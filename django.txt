@@ -71,6 +71,34 @@ TODO List:
     - at last to display the data, use {{}} and put the loop_name next with '.' then the field name of the data need
         - {{ post.title }} // it will display all the data that have in the field 'title'.
 
+5. Creating a Form
+    - Create new file named 'forms.py' in the app folder.
+    - import / from django.forms import ModelForm
+    - import the models that you want to create a form
+    - after that create new class 
+        - class PostForm(ModelForm):
+    - inside of new class create another class named 'meta'.
+        - class Meta:
+    - inside the class meta, create a variable named 'model' and 'fields'
+        -  model = Post
+        -  fields = []
+            - model variable will get the desired model that will form will be accessing
+            - fields variable will tell what will be featured in the created form and it controls the sequence of the form fields,
+                - fields = ['author', 'title', 'content']
+                
+    - Create new class in the view and import the form 
+    - create a variable that will hold the form 
+        - form = PostForm() 
+    - Create new urlpattern for the template where the form will be displayed
+    - Create new Templates
+        - Create a HTML form structure
+        - 2 methods POST or GET
+    - Inside the HTML Form add the csrf token and the form
+        - {% csrf_token %} // csrf_token is a django security for posting or sending the data.
+        - {{ form }} // Form is variable because this the form the create in forms.py that we imported in views
+
+5.5. Posting / saving the data in form
+
 5. Form
     - Content Form
         - Create
