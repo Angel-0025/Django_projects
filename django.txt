@@ -98,10 +98,49 @@ TODO List:
         - {{ form }} // Form is variable because this the form the create in forms.py that we imported in views
 
 5.5. Posting / saving the data in form
+    - To save the form data.
+    - Start with the view where the form came from.
+    - use the if statement and put .POST
+        - if request.POST:
+            - This make sure if the form coming in a POST request or not, then 
+    - add new form and add the request.POST inside of it.
+        - form = PostForm(request.POST)
+            - This make new form that have a data inputted intact in the form.
+    - To verify if the inputted data is correct or valid in the fields 
+        - if form.is_valid():
+            - This is to verify if the data is valid.
+    - after verifying, final you can saved the data in the database.
+        - form.save()
+            - This will save the data in form to the database
+    - after saving, you can control where the destination of the page after saving 
+        - return redirect( name of the page in url )
+-----------------------------------------------------------
+5.6 Viewing Specific Database
+    - To view the posted data, first create new function view with additional parameter 'pk' or primary key.
+        - def viewPost(request, pk):
+            - pk will expect data, like id 
+    - create a variable that filter id from the model.
+        - post = Post.objects.filter(id=pk)
+            - this will filter the data to specific one, then render it
+    - create new url for the view post.
+        - path("post/<str:pk>", views.viewPost, name="view-post"),
+            - the "<str:pk>", this show that we need a specific data to access the page.
+    - create the template for the view post, and like in the home page you just need to iterate it to display the data.
+
+    - To access the specific data, you can make a specific link in the post, and the url in href will be like this.
+        - {% url 'view-post ' iterateName.id %}
+            - the 'iterateName.id' is the data needed in the urlpatterns that we created a while ago.
+            - "post/<str:pk>", the <str:pk> represent the 'iterateName.id' in the link.
+
+
+
+
+
+
 
 5. Form
     - Content Form
-        - Create
+        - Create ✔ 
         - Edit/Update
         - Delete
     - Blog user Form
