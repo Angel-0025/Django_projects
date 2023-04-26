@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Post
 from .forms import PostForm
 
@@ -8,7 +7,8 @@ from .forms import PostForm
 def index(request):
     context = {'post': Post.objects.all }
     return render(request, 'blog/home.html', context)
-
+             
+"""
 def viewPost(request, pk):
     
     post = Post.objects.filter(id=pk)
@@ -28,3 +28,5 @@ def newPost(request):
             return redirect('index')
     
     return render(request, 'blog/new_post.html', {'form':form})
+        
+"""

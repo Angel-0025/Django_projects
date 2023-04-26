@@ -63,7 +63,7 @@ TODO List:
     - import the model to the view
     - the imported model new to instantiate to get the all fields
         - Post.objects.all() // To get the fields
-    - add the added model as dictionary in the render function
+    - add the added model as dictionary in the render Form
         - render(request, url, model_dictionary)
     - to display the data, us the for loop to display
         - for loop_name in model_dictionary key
@@ -132,16 +132,20 @@ TODO List:
             - the 'iterateName.id' is the data needed in the urlpatterns that we created a while ago.
             - "post/<str:pk>", the <str:pk> represent the 'iterateName.id' in the link.
 
+5.9 Login Form
+    - Login Function
+        - Register ✔
+        - Login ✔
+        - Logout ✔
 
 
 
 
-
-
+-------------------------------------------------------------------------------------------------
 5. Form
     - Content Form
         - Create ✔ 
-        - Edit/Update
+        - Edit/Update 
         - Delete
     - Blog user Form
         - Create 
