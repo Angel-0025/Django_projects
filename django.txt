@@ -137,7 +137,58 @@ TODO List:
         - Register ✔
         - Login ✔
         - Logout ✔
-
+    *****
+    - Create new app for the Login functions (named: users)
+    - New flow of coding
+        - Models > Forms > Templates > urls > views 
+    
+    * Register Form
+    - Create new form in forms.py 
+        - Import the "UserCreationForms" and the "User"
+            - the "UserCreationForms" is used for creating a new user that can use our web application.
+        - create new class named "UserRegistrationForm" inside the parameter is the "UserCreationForms".
+            - we do this because we will modify the "UserCreationForms" and add new field.
+        - create a email variable with email field.
+            - email = forms.EmailField()
+        - after creating the field, create a new class inside the parent class named "Meta"
+        - add the model we want to save the field data
+            - In this instance we want to save our data in User model.
+        - add the "fields" variable and create a square bracket inside of it is the list of the fields.
+            - This is used for the display of the field that will be shown.
+    -  add the url in the main settings, import the views.py in it.
+    - Create the function in the views.py
+        - if the method is POST
+        - check if the form is valid
+        - if valid, then save.
+        - then redirect it to login button
+        - if the method is not POST, send the blank form
+    
+    * Login Form
+    - import the "AuthenticationForm" and [login, logout, authenticate] in the views.py 
+        - "AuthenticationForm"is a built-in function for authentication.
+    - Checks if the method is POST
+    - putting the data in a form variable with the AuthenticationForm. 
+		- form = AuthenticationForm(request, data=request.POST)
+    - Check if valid
+    - get the username and password in a variable
+        - username = form.cleaned_data.get('username')
+		- password = form.cleaned_data.get('password')
+    - Authenticate the username and password
+        - user = authenticate(username=username, password=password)
+            - this will return a object if the data is valid and if not there will be no object returning
+    - check if the user is authenticated
+    - if authenticated, login and redirect 
+        - login(request, user)
+            - login is a function that login the data without with more coding thanks to django.
+    - create a url
+    - create a template
+    
+    * Logout
+    - create new function for logout in views.py 
+    - put the function and the request
+        - logout(request)
+            - this will logout the current login account in the system.
+    - redirect where to go after the logout
 
 
 
