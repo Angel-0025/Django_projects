@@ -39,6 +39,15 @@ def viewPost(request, pk):
     
     return render(request, 'blog/post_detail.html', context)
 
+def userPostList(request, pk):
+    
+    user = User.objects.get(id = pk)
+    
+    post_list = Post.objects.filter(author = user.id)
+    
+    context = {'user':user, 'post':post_list}
+    return render(request, 'blog/user_post_list.html', context)
+
 def editPost(request, pk):
     
     post = Post.objects.get(id = pk)

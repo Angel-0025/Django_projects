@@ -196,12 +196,19 @@ TODO List:
 5. Form
     - Content Form
         - Create ✔ 
-        - Edit/Update 
-        - Delete
-    - Blog user Form
-        - Create 
-        - Edit/Update
-        - Delete
+        - Edit/Update ✔
+        - Delete ✔
+-----------------------------------------
+    - Blog account Form
+        - Create ✔ 
+        - Update ✔
+        - Upload Picture ✔
+-----------------------------------------
+6. View all the author posts 
+    - view ✔
 
+6. New apps
+    - To do List
+    - Timer
 6. Simplify the list, create, delete, update by using the generic form imported
 
