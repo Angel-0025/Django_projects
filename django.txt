@@ -209,6 +209,10 @@ TODO List:
 
 6. New apps
     - To do List
+        - List view ✔
+        - Create list ✔
+        - Update
+        - Delete
     - Timer
 6. Simplify the list, create, delete, update by using the generic form imported
 

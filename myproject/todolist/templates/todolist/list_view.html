@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block content %}
+   {% for list in list %}
+    <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ list.user.profile.image.url }}" alt="">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="">{{ list.user }}</a>
+                <small class="text-muted">{{ list.time_created }}</small>
+            </div>
+            <h2><a class="article-title" href=""></a> {{ list.topic }}</h2>
+            <p class="article-content">{{ list.content }}</p>
+        </div>
+    </article>
+    {% endfor %}
+{% endblock content %}
