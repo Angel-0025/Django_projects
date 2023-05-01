@@ -12,8 +12,13 @@ def toDoList(request):
     user = User.objects.get(id = request.user.id)
     list = DoList.objects.filter(user = user.id)
     
-    return render(request, 'todolist/list_view.html', {'list':list})
+    return render(request, 'todolist/list_display.html', {'list':list})
 
+def toDoList_view(request, pk):
+    list = DoList.objects.get(id = pk)
+
+    return render(request, 'todolist/list_view.html', {'list':list})
+    
 def toDoList_create(request):
     if request.method == "POST":
         form = DoListForm(request.POST)
@@ -28,3 +33,28 @@ def toDoList_create(request):
     form = DoListForm()
     
     return render(request, 'todolist/list_create.html', {'form':form})
+
+def toDoList_update(request, pk):
+    list = DoList.objects.get(id = pk)
+    
+    if request.method == 'POST':
+        form = DoListForm(request.POST, instance = list)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Your To-do list is updated!.")
+            return redirect('todolist-view', pk=list.id)
+    list = DoList.objects.get(id = pk)
+    
+    form = DoListForm(instance=list)
+    
+    return render(request, 'todolist/list_update.html', {'form':form})
+
+def toDoList_delete(request, pk):
+    list = DoList.objects.get(id = pk)
+    
+    if request.method == 'POST':
+        list.delete()
+        messages.success(request, f"Your to-do list is deleted!.")
+        return redirect('todolist')
+    
+    return render(request, 'todolist/list_delete.html', {'list': list})

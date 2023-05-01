@@ -210,9 +210,11 @@ TODO List:
 6. New apps
     - To do List
         - List view ✔
+        - List detail view ✔
         - Create list ✔
-        - Update
-        - Delete
+        - Update ✔
+        - Delete ✔
+        - Rework the Todolist not like just like a blog post -Urgent-
     - Timer
 6. Simplify the list, create, delete, update by using the generic form imported
 
