@@ -17,7 +17,6 @@ def todolist_view(request):
             'user':user
             }
     return render(request, 'todolist/todo_list_view.html', context)
-
 # Create the todo list topic
 def todolist_create(request):
     
@@ -37,7 +36,6 @@ def todolist_create(request):
         'form':form 
     }
     return render(request, 'todolist/todo_list_create.html', context)
-
 # View the task inside the todolist topic
 def dolist_view(request, pk):
 
@@ -47,7 +45,6 @@ def dolist_view(request, pk):
     
     context = {'list':dolist, 'todolist_id':todolist_id }
     return render(request, 'todolist/dolist_view.html', context)
-
 # Create/ add task to todolist topic
 def dolist_create(request, pk):
     
@@ -65,6 +62,18 @@ def dolist_create(request, pk):
     context = {'form': form}
     
     return render(request, 'todolist/dolist_create.html', context)
+# Delete the topic todolist
+def dolist_delete(request, pk ):
+    topic = ToDoList.objects.get(id = pk)
+    
+    if request.method == 'POST':
+        topic.delete()
+        messages.success(request, f"{topic.title} is successfully deleted !.")
+        return redirect('todolist-view')
+
+    context = {'topic':topic }
+    return render(request, 'todolist/dolist_delete.html', context)
+
 
 
 # to do 
