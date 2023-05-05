@@ -1,6 +1,6 @@
 {% extends 'main.html' %}
 {% block content %}
-    <h1>Task List View</h1>
+    <h1>{{ todolist_id }} View</h1>
     {% for list in list %}
         <article class="media content-section">
             <div class="media-body">
@@ -16,7 +16,6 @@
     {% endfor %}
     
     {% if user == user %}
-        <h1>{{ todolist_id }}</h1>
         <div class="article-metadata">
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'dolist-create' todolist_id %}">Add</a>
             <a class="btn btn-danger btn-sm mt-1 mb-1" href="#">Delete</a>
