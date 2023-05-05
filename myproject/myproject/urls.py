@@ -23,7 +23,7 @@ from users import views as users_view
 urlpatterns = [
 
     path("", include("blog.urls")),
-    path("", include("todolist.urls")),
+    #path("", include("todolist.urls")),
     path('admin/', admin.site.urls),
     
     path("profile/", users_view.profile_Update, name="profile"),
