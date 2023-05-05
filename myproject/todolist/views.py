@@ -77,6 +77,4 @@ def dolist_delete(request, pk ):
 
 
 # to do 
-
-# Delete in task view / this delete is for the topic
 # Create the view, update, delete for specific task  
