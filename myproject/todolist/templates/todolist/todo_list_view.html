@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+    <h1>To Do List</h1>
+    {% for list in list %}
+        <article class="media content-section">
+            <div class="media-body">
+                <article class="media content-section">
+                    <a href="{% url 'dolist-view' list.id %}">{{ list.title }}</a>
+                </article>
+            </div>
+        </article>
+    {% empty %}
+        <h3 class="text-mute">No to-do list created</h3>
+    {% endfor %}
+    
+    {% if user == user %}
+     
+        <div class="article-metadata">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'todolist-create' %}">Create</a>
+        </div>
+    {% endif %}
+{% endblock content %}

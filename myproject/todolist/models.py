@@ -16,3 +16,6 @@ class DoList(models.Model):
     description = models.TextField(null=True, blank=True)
     date_created = models.DateField(default=timezone.now)
     
+    def __str__(self):
+        return self.title
+    
