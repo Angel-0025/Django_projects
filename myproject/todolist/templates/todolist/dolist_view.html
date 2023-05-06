@@ -5,7 +5,7 @@
         <article class="media content-section">
             <div class="media-body">
                 <article class="media content-section">
-                    <a href="#">{{ list.title }}</a>
+                    <a href="{% url 'dolist-update' list.id %}">{{ list.title }}</a>
                  
                 </article>
             </div>
@@ -18,7 +18,7 @@
     {% if user == user %}
         <div class="article-metadata">
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'dolist-create' todolist_id %}">Add</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'dolist-delete' todolist_id.id %}">Delete</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'todolist-delete' todolist_id.id %}">Delete</a>
         </div>
     {% endif %}
 {% endblock content %}

@@ -36,6 +36,17 @@ def todolist_create(request):
         'form':form 
     }
     return render(request, 'todolist/todo_list_create.html', context)
+# Delete the topic todolist
+def todolist_delete(request, pk ):
+    topic = ToDoList.objects.get(id = pk)
+    
+    if request.method == 'POST':
+        topic.delete()
+        messages.success(request, f"{topic.title} is successfully deleted !.")
+        return redirect('todolist-view')
+
+    context = {'topic':topic }
+    return render(request, 'todolist/todolist_delete.html', context)
 # View the task inside the todolist topic
 def dolist_view(request, pk):
 
@@ -62,19 +73,36 @@ def dolist_create(request, pk):
     context = {'form': form}
     
     return render(request, 'todolist/dolist_create.html', context)
-# Delete the topic todolist
-def dolist_delete(request, pk ):
-    topic = ToDoList.objects.get(id = pk)
+# Update/Edit task
+def dolist_update(request, pk):
+    task = DoList.objects.get(id = pk)
     
-    if request.method == 'POST':
-        topic.delete()
-        messages.success(request, f"{topic.title} is successfully deleted !.")
-        return redirect('todolist-view')
-
-    context = {'topic':topic }
+    if request.method == "POST":
+        form  = DoListForm(request.POST, instance=task)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"Your task is updated!.")
+            return redirect('dolist-view', pk = task.todo_list.id) 
+        
+    form = DoListForm(instance=task)
+    
+    context = {
+        'form': form,
+        'task': task
+    }
+    return render(request, 'todolist/dolist_update.html', context)
+# Delete Task 
+def dolist_delete(request, pk):
+    task = DoList.objects.get(id = pk)
+    if request.method == "POST":
+        task.delete()
+        messages.success(request, f"{task.title} is successfully deleted!.")
+        return redirect('dolist-view', pk = task.todo_list.id )
+    
+    context = {
+        'task': task
+    }
     return render(request, 'todolist/dolist_delete.html', context)
-
-
-
 # to do 
 # Create the view, update, delete for specific task  
