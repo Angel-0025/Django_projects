@@ -216,12 +216,12 @@ TODO List:
         - Delete ✔
         - Rework the Todolist not like just like a blog post -Urgent-
 
-    - To Do list (Remake)
-        - Create Category / To do list name
-            - After Creating go to list page 
-            - Create list, delete Category
-                - Create list - Category, title, body, database
-                - save, cancel
+    - To Do list (Remake) ✔
+        - Create Category / To do list name  ✔
+            - After Creating go to list page   ✔
+            - Create list, delete Category  ✔
+                - Create list - Category, title, body, database  ✔
+                - save, cancel  ✔
                 
     - Timer
 6. Simplify the list, create, delete, update by using the generic form imported
